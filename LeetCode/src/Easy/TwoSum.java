@@ -5,9 +5,8 @@ import java.util.Arrays;
 public class TwoSum {
 	
 	static int[] array1 = {2, 3, 7, 11, 15};
-	static int target = 9; // target value
 	
-	public static int[] subArray(int[] array1) {
+	public static int[] subArray(int[] array1, int target) {
 		int[] array2 = {};
 		
 		for (int i = 0; i < array1.length; i++) {
@@ -29,15 +28,16 @@ public class TwoSum {
 				i++;
 			}
 			else {
-				int[] array3 = {i, j};
-				System.out.println(Arrays.toString(array3)); // [0, 2]! Works! 
+				int[] array3 = {i, j}; // [0, 2]
+				System.out.println(Arrays.toString(array3));
 			}
 		}
+		//throw new IllegalArgumentException("No two sum solution!");
 		return array2;
 	}
 	
 	
 	public static void main(String[] args) {
-		System.out.println(subArray(array1));
+		System.out.println(subArray(array1, 9));
 	}
 }
