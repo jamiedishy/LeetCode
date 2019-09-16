@@ -11,7 +11,7 @@ public class TwoSumHash {
 	public static int[] twoSum(int[] num, int target) {
 	    Map<Integer, Integer> map = new HashMap<>();
 	    for (int i = 0; i < num.length; i++) {
-	    	map.put(num[i], i);
+	    	map.put(num[i], i); 
 	    }
 	    for (int i = 0; i < num.length; i++) {
 	    	int complement = target - num[i];
