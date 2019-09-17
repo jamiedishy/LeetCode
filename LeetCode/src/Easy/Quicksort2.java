@@ -33,8 +33,8 @@ public class Quicksort2 {
 			else if (array1[beg] < array1[pivot]) {
 				beg++;
 			}
-			//quicksort(beg, pivot - 1);
-		//	quicksort(pivot + 1, end);
+			quicksort(beg, pivot - 1);
+			quicksort(pivot + 1, end);
 		}
 		return array1;
 	}
