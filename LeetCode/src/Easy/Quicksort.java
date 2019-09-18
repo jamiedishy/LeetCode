@@ -2,7 +2,6 @@ package Easy;
 // before i created new object arrays and set them equal to recursion of less subarray and greater subarray
 // confusing to recurse on subarrays and then put them all together... better to create points (ie beg and end)
 // and then use them to keep track of array1. this way when you recurse, you don't need to add any arrays together
-// TEST
 
 public class Quicksort {
 
