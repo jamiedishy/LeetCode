@@ -9,19 +9,17 @@ public class HappyNumber {
 		Scanner scannerObject = new Scanner(System.in);
 		System.out.println("Enter an int. If it's a happy number, this program will return true:)");
 		int num = scannerObject.nextInt();
-
-		int result = 0;
+		
 		int sum = 0;
-
-		while (result != 1) {
-			sum = (int) (sum + Math.pow(num % 10, 2));
-			if (num / 10 != 0) {
-				num = num / 10;
-			} else if (num / 10 == 0) {
-				result = sum;
-				num = sum;
-				sum = 0;
+		while (sum !=1) {
+			if (num==0)
+			{
+				num=sum;
+				sum=0;
 			}
+			sum += (int) (Math.pow(num%10, 2));
+			num /= 10;
+			System.out.println(sum+" "+num);
 		}
 		return true;
 	}
