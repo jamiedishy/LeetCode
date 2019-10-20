@@ -4,7 +4,7 @@ public class RobberSum {
 	
 	static int[] cashPerHouse = {3, 7, 1, 2, 4};
 	
-	public static int cashSum (int[] A) {
+	public static int cashSum(int[] A) {
 		
 		int sumEven = 0;
 		int sumOdd = 0;
@@ -27,8 +27,9 @@ public class RobberSum {
 		}
 		return Math.max(sumEven, sumOdd);
 	}
-
+	
 	public static void main(String[] args) {
 		System.out.println(cashSum(cashPerHouse));
 	}
+
 }
