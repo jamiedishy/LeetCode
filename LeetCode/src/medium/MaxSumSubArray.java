@@ -1,7 +1,7 @@
 package medium;
 
 import java.util.Arrays;
-//hello
+
 public class MaxSumSubArray {
  
 	public static int[] maxSubArray(int[] x) {
