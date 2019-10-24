@@ -8,12 +8,11 @@ public class mutateArray {
 	    int added = 0;
 	    int[] b = new int[n];
 	    
+	    if (n == 1) {
+	    	b = a;
+	    }
 	    for (int i = 0; i < n; i++) {
-	        if (i-1 < 0 && i+1 >= n) {
-	            added = a[i];
-	            b[i] = added;
-	        }
-	        else if (i-1 < 0) {
+	        if (i-1 < 0) {
 	        	added = 0 + a[i] + a[i+1];
 	        	b[i] = added;
 	        } 
