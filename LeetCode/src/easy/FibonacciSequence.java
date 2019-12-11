@@ -1,16 +1,25 @@
 package easy;
 
-import java.util.ArrayList;
-
 public class FibonacciSequence {
-	// without memoization, O(2^n)
 	
-	
-	
+	static int[] A = new int[50];
+	public static int fib(int n) {
+		int f = 0;
+		if (n < 2) {
+			return n;
+		}
+		if (A[n] != 0) {
+			return A[n];
+		}
+		else {
+		f = fib(n-1) + fib(n-2);
+		}
+
+		return f;
+	}
 	
 	public static void main(String[] args) {
-		int ex = 6;
-		//System.out.println(fib(ex));
+		System.out.println(fib(5));
 	}
 	
 
