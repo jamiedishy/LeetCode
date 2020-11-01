@@ -25,7 +25,7 @@ public class Day7 {
 			} else {
 				if (number.charAt(i - 2) == '1') {
 					dp[i] = dp[i - 2] + dp[i - 1];
-				} else if (number.charAt(i - 2) == '2' && (int) number.charAt(i - 1) < 7) {
+				} else if (number.charAt(i - 2) == '2' && Character.getNumericValue(number.charAt(i-1)) < 7) {
 					dp[i] = dp[i - 2] + dp[i - 1];
 				} else {
 					dp[i] = dp[i - 1];
