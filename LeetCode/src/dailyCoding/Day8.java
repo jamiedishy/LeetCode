@@ -17,20 +17,32 @@ public class Day8 {
 		}
 	}
 
-	public int univalTrees(Node node) {
-		if (node.left == null && node.right == null) {
-			System.out.println("leaf" + node.data);
-			return 1;
-		} 
-		else if (node.right.data == node.data && node.left.data == node.data) {
-			System.out.println("tree" + node.data);
-			return 1 + univalTrees(node.left) + univalTrees(node.right);
-		} 
-		else {
-			return univalTrees(node.left) + univalTrees(node.right);
-		}
+	public boolean isUnivalTrees(Node node) {
+		return univalHelper(node, node.data);
 	}
-
+	
+	public boolean univalHelper(Node node, int data) { // check if every node in tree has same value
+		if (node == null) {
+			return true;
+		}
+		if (node.data == data) {
+			return univalHelper(node.left, node.data) && univalHelper(node.right, node.data);
+		}
+		return false;
+	}
+	
+	public int countUnivalSubTrees(Node node) {
+		if (node == null) {
+			return 0;
+		}
+		int left = countUnivalSubTrees(node.left);
+		int right = countUnivalSubTrees(node.right);
+		if (isUnivalTrees(node) == true) {
+			return 1 + left + right;
+		}
+		return left + right;
+	}
+	
 	public static void main(String[] args) {
 		Node node = new Node(0);
 		node.left = new Node(1);
@@ -41,7 +53,7 @@ public class Day8 {
 		node.right.left.right = new Node(1);
 
 		Day8 uTree = new Day8();
-		System.out.println(uTree.univalTrees(node));
+		System.out.println(uTree.countUnivalSubTrees(node));
 
 	}
 
