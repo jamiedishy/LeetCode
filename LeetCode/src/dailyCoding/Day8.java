@@ -31,7 +31,7 @@ public class Day8 {
 		return false;
 	}
 	
-	public int countUnivalSubTrees(Node node) {
+	public int countUnivalSubTrees(Node node) { // O(n2) time in total O(n2) space
 		if (node == null) {
 			return 0;
 		}
