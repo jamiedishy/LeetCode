@@ -1,44 +1,56 @@
 package easy;
 
 
-
 public class MirrorTree {
 	
-	public static Integer[] treeArray = {1, 2, 2, 3, 4, 4, null};
-	public static int i = 1;
-	public static int j = 2;
-	
-	public static boolean isSymmetric(Integer[] root) {
-		if (root[0] == null) {
-			return true;
-		}
+	static class BinaryTree {
+		BinaryTree right;
+		BinaryTree left;
+		int data;
 		
-        return isMirror(root[i], root[j]);
-    }
-	
-	public static boolean isMirror(Integer t1, Integer t2) {
-		if (t1 == null && t2 == null) {
-			return true;
+		public BinaryTree(int data) {
+			this.right = null;
+			this.left = null;
+			this.data = data;
 		}
-		if (t1 == null || t2 == null) {
-			return false;
-		}
-		if (!t1.equals(t2)) {
-			return false;
-		}
-		
-		int iRight = 2 * (i + 1);
-		i = 2 * i + 1;
-		
-		int jLeft = 2 * j + 1;
-		j = 2 * (j + 1);
-		
-		return ((i | j | iRight | jLeft) > treeArray.length-1) ? isMirror(null, null) && isMirror(null, null) : isMirror(treeArray[i], treeArray[j]) && isMirror(treeArray[iRight], treeArray[jLeft]);
 	}
 	
+	public static boolean isMirror(BinaryTree node) {
+		if (node.left != null && node.right != null) {
+		return mirrorHelper(node.left, node.right);
+		}
+		else if (node.left != null || node.right != null){ // unevenly balanced
+			return false;
+		}
+		return true; // if only one node
+	}
+	
+	public static boolean mirrorHelper(BinaryTree left, BinaryTree right) {
+		
+		if (left.left == null && left.right == null && right.left == null && right.right == null) {
+			if (left.data == right.data) {
+				return true;
+			} 
+			else {
+				return false;
+			}
+		}
+		else if (left.left == null || left.right == null || right.left == null || right.right == null) {
+			return false;
+		}
+		return mirrorHelper(left.left, right.right) && mirrorHelper(left.right, right.left); 
+	}
 
 	public static void main(String[] args) {
-		System.out.println(isSymmetric(treeArray));
+		BinaryTree node = new BinaryTree(1);
+		node.left = new BinaryTree(2);
+		node.right = new BinaryTree(2);
+		node.left.left = new BinaryTree(3);
+		node.left.right = new BinaryTree(4);
+		node.right.left = new BinaryTree(4);
+		node.right.right = new BinaryTree(3);
+		
+		System.out.println(isMirror(node));
 	}
 
 }
