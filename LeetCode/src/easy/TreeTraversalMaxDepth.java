@@ -1,33 +1,37 @@
 package easy;
 
 public class TreeTraversalMaxDepth {
+	static class Node {
+		Node right;
+		Node left;
+		int data;
+		public Node(int data) {
+			this.right = null;
+			this.left = null;
+			this.data = data;
+		}
+	}
 	
-	/**
-	 * Definition for a binary tree node.
-	 * public class TreeNode {
-	 *     int val;
-	 *     TreeNode left;
-	 *     TreeNode right;
-	 *     TreeNode() {}
-	 *     TreeNode(int val) { this.val = val; }
-	 *     TreeNode(int val, TreeNode left, TreeNode right) {
-	 *         this.val = val;
-	 *         this.left = left;
-	 *         this.right = right;
-	 *     }
-	 * }
-	 */
-	    private int maxDepth = 0;
-	    public int maxDepth(TreeNode root) {
-	        mDepth(root, 0);
-	        return maxDepth;
-	    }
-	    public void mDepth(TreeNode root, int depth) {
-	        if (root != null) {
-	            depth++;
-	            maxDepth = maxDepth >= depth? maxDepth : depth;
-	            mDepth(root.right, depth);
-	            mDepth(root.left, depth);
-	        }
-	    }
+	public static int maxDepth(Node node) {
+		
+		if (node == null) {
+			return 0;
+		}
+		
+		return 1 + Math.max(maxDepth(node.left), maxDepth(node.right));
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		Node node = new Node(3);
+		node.left = new Node(9);
+		node.right = new Node(20);
+		node.right.left = new Node(15);
+		node.right.right = new Node(7);
+		node.right.left.left = new Node(4);
+		
+		System.out.println(maxDepth(node));
+	}
+	
 }

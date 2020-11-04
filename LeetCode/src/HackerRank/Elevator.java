@@ -34,7 +34,7 @@ public class Elevator {
 	
 	public static void main(String[] args) {
 		int[] weightList = {10, 20, 30, 40, 50};
-		int[] floorList = {5, 4, 2, 2, 7};
+		int[] floorList = {5, 4, 2, 3, 7};
 		int weightCapacity = 10;
 		int numberCapacity = 10;
 		int maxFloor = 7;

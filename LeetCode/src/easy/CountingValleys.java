@@ -24,5 +24,6 @@ public class CountingValleys {
 		String path = "DDUUUUDD";
 		System.out.println(countValleys(8, path));
 	}
+	
 
 }
