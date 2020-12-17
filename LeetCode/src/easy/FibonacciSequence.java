@@ -1,25 +1,33 @@
 package easy;
 
+import java.util.HashMap;
+
 public class FibonacciSequence {
 	
-	static int[] A = new int[50];
+	public static HashMap<Integer, Integer> memoMap = new HashMap<>();
+	
+	// max n is 46 otherwise overflow of java's signed 32-bit ints
 	public static int fib(int n) {
-		int f = 0;
-		if (n < 2) {
+		if (n <= 1) {
+			memoMap.put(n, n);
 			return n;
 		}
-		if (A[n] != 0) {
-			return A[n];
+		if (memoMap.containsKey(n)) {
+			return memoMap.get(n);
 		}
-		else {
-		f = fib(n-1) + fib(n-2);
-		}
-
-		return f;
+		
+		int value = fib(n-1) + fib(n-2);
+		memoMap.put(n, value);
+		
+		return memoMap.get(n);
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(fib(5));
+		System.out.println(fib(46));
+		
+//		for (int val : memoMap.keySet()) {
+//			System.out.println(val);
+//		}
 	}
 	
 
