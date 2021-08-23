@@ -30,7 +30,7 @@ public class RomanToInt {
 		return runningSum;
 	}
 	
-	// utility method
+	// utility method populate map
 	public Map<String, Integer> populateRomanToIntMap() {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("I", 1);
